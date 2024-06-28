@@ -166,7 +166,11 @@ public:
 
     size_t size() { return crutch; };
     size_t maxSize() { return 204903409; };
-    void swap(List* list2);
+    void swap(List* list2) {
+        Node<T>* buffer = list2->head;
+        list2->head = this->head;
+        this->head = buffer;
+    };
 
 
     List& operator=(const List& list) {
